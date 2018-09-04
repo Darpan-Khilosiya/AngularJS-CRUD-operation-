@@ -1,2 +1,5 @@
 # AngularJS-CRUD-operation-
-beginner level 
+HERE IN THIS REPO, I HAVE DONE CRUD OPERATIONS(CREATE, READ, UPDATE, DELETE).
+
+.THIS IS MY FIRST REPO.
+beginner level
