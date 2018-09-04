@@ -1,0 +1,36 @@
+<br>
+<br>
+<br>
+<div class="card">
+  <div class="card-header">
+    {{title | uppercase}}
+  </div>
+  <div class="card-body">
+    <form [formGroup]="rForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">Project Title</label>
+        <input type="text" class="form-control" formControlName="projectName" />
+      </div>
+      <div *ngIf="rForm.controls['projectName'].invalid && (rForm.controls['projectName'].dirty || rForm.controls['projectName'].touched)" class="alert alert-danger">
+        Project name is required.
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Project Description</label>
+        <input type="text" class="form-control" formControlName="description" />
+      </div>
+      <div class ="form-group">
+        <label class="col-md-4">Select Group</label>
+        <select class="form-control" formControlName="groups" onSelect="($event.target.value)">
+          <option *ngFor="let group of groups" [ngValue]="group.id">{{ group.name}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <div class="col-md-1">
+          <button type="submit"   class='btn btn-primary btn-lg' (click)='addProject(rForm)' [disabled]="rForm.invalid">
+            <i class="fa fa-plus">Post </i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div> 

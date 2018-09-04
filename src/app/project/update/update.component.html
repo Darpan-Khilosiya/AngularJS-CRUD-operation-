@@ -1,0 +1,39 @@
+<br>
+<br>
+<br>
+<div ng-app="" ng-controller="x">
+  <div class="card">
+    <div class="card-header">
+        {{title || uppercase}}
+    </div>
+    <div class="card-body">
+      <form [formGroup]="rForm" ng-controller="ExampleController" novalidate>
+        <div class="form-group">
+          <label class="col-md-4">Project Title</label>
+          <input type="text" class="form-control" formControlName="projectName" ([ngModel])="title"/>
+        </div>
+        <div *ngIf="rForm.controls['projectName'].invalid && (rForm.controls['projectName'].dirty || rForm.controls['projectName'].touched)" class="alert alert-danger">
+          Project name is required.
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">Project Description</label>
+          <input type="text" class="form-control" formControlName="description" ([ngModel])="description"/>
+        </div>
+        <div class ="form-group">
+          <label class="col-md-4">Select Group</label>
+          <select class="form-control" formControlName="groups" onSelect="($event.target.value)">  
+            <option *ngFor="let group of groups" [ngValue]="group.id" ([ngModel])="groups.name">
+              {{ group.name}}
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <div class="col-md-1">
+            <button type="button"   class='btn btn-primary btn-lg' (click)='updateProject(rForm)' [disabled]="rForm.invalid">
+            <i class="fa fa-plus">Update </i></button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div> 
+</div>

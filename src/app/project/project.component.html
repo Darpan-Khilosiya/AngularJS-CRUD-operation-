@@ -1,0 +1,59 @@
+<a routerLink ="./add-project" routerLinkActivate="active">
+<button type="button" style="margin-left: 0rem"  class='btn btn-primary'>
+<i class="fa fa-plus">ADD Project </i>
+</button></a>
+
+<!-- Code of Project Details -->
+<div class = "card">
+    <div class= "card-header">
+      Project Details
+    </div>
+    <div class = "card-body">
+      <table class="table table-responsive-lg table-dark table-striped">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Create Date</th>
+            <th>Update date</th>
+            <th>Edit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let project of projects">
+            <td>{{ project.title }}</td>
+            <td>{{ project.description }}</td>
+            <td>{{ project.status }}</td>
+            <td>{{ project.createdAt }}</td>
+            <td>{{ project.updatedAt }}</td>
+            <td><a [routerLink] ="['update', project.id]" >
+              <button type="button" style="margin-left: 0rem" class='btn btn-primary'><i class="fa fa-plus">Update</i></button></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div><br><br>
+
+ <!-- code of Group Details  -->
+<div class = "card">
+  <div class= "card-header">
+    Group Details
+  </div>
+  <div class = "card-body">
+    <table class="table table-responsive-lg table-dark table-striped">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let group of groups">
+          <td>{{ group.id }}</td>
+          <td>{{ group.name}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
